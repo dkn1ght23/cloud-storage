@@ -1,6 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CloudVault — Frontend
 
-## Getting Started
+CloudVault is a minimal cloud storage web app built as a cloud computing project.  
+The frontend is a **Next.js (App Router) + TypeScript + shadcn/ui** application that lets users:
+
+- Upload files
+- View a list of stored files
+- Download files
+- Delete files
+
+All actions are performed via a REST API backed by AWS S3.
+
+---
+
+## 1. Tech Stack
+
+- **Framework:** Next.js (App Router) + React
+- **Language:** TypeScript
+- **UI Library:** shadcn/ui + Tailwind CSS
+- **HTTP Client:** Fetch API / Axios (depending on your implementation)
+- **Icons:** Lucide / React icons
+- **State:** Local React state (no heavy state management library)
+
+---
+
+## 2. Project Structure (High Level)
+
+> Adjust names if they differ in your repo.
+
+```bash
+cloudvault-frontend/
+├─ app/
+│  ├─ layout.tsx
+│  ├─ page.tsx              # Home page (project intro + CTA)
+│  └─ files/
+│     └─ page.tsx           # Main File Manager UI
+├─ components/
+│  ├─ ui/                   # shadcn/ui components
+│  ├─ file-table.tsx        # Table/list view of files
+│  ├─ upload-dialog.tsx     # Upload modal / dropzone
+│  └─ navbar.tsx
+├─ lib/
+│  ├─ api.ts                # API helpers (fetching files, upload, delete)
+│  └─ types.ts              # Shared TS types (e.g., StoredFile)
+├─ public/
+│  └─ ...                   # Logos, meta images
+├─ styles/
+│  └─ globals.css
+├─ .env.local               # Frontend env vars (not committed)
+├─ package.json
+└─ tsconfig.json
+
 
 First, run the development server:
 
@@ -17,20 +66,3 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
